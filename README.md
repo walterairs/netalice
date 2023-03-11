@@ -1,26 +1,31 @@
-# netalice
-net analysis project
-@@@@&&&&#&&&&&@@@@@@@@@@@@&&@@@@@@@@&&@@&@&#&#&&B5
-@@@@&##&&&&&&&@@@@@@@&G5?~75&@@GY?P&@@#@&&@#&B#&#P
-@@@@@@&&&&###&@@@@@G7::^7JY#@&PPGY!~JGG@@@@B@G&&#P
-@@@@@@@&###&&&@@@B?~^.:!JGB@&5!:~?J7!&@#G&&&&B#&#5
-@@@@&@@&#&&@@@@&?~::~75BBB&B#577^::?PG@@P##B@GB&#Y
-@@@@@@@&&@@@@@#!:^^Y@@@@&5?JPPJ!!??!P#GG&@&&@@@@&5
-@@@@@@@@&@@@@#Y^~75@&G5?~:^^:!JPY!7PGGP#Y#@@@@@#G@
-@@@@@@@@@@@@#5~^J!@@GYJ!~^.^^:.^75PPP5GBBP&&Y##@@@
-@@@@@@@@@@@&P7.5Y7@@BP5Y7~.::^~:^:7&@Y##@#B##BB&&5
-@@@@@@@@@@@G!7G&57@@&&#GJ~~???!^:^.?B#GYB#GB@@@@#5
-@@@@@@@@@@J~J@&@BY&@@@@&&&@@@@BB7^:~G5G&G&BP#@&@&&
-@@@@@@@@#!?#&@&@#BB@@@@@B!P&&&PY!^::PJ##&&##@B@&B#
-@@@@@@@575#&@&@@@##&@@@&!.:7J7~:~~:~&#P5&GGB&G#&#P
-@@@@@@BBGP#@@&@@@@@&#B@P^:~Y::^:^.:?@&BPBBBB#5&@&P
-@@@@@#@#Y#@@@&@@@@@@@&@@&Y!J~^~:^:^G@PBBY&#G&PG&#P
-@@@@&@@5B#@@&B&B&@@@@@@@@&5J57!^~7B@&&GB&55P##B&#P
-@@@@@@#JB@@@B&B7#&@@@@@@@&GJ???P&@@###B#&#&@@J&@#P
-@@@@@@#P@@@#@&G?BP&@@@@@@#PJ5#@@&BP55###&BBBB@&&G5
-@@@@@@@&@@@&@&B5YB5&@@@@@@@@@@&PYJ?G#&G&&5G#&G&&#&
-@@@@@@@@@@@@@&&#?GYB@@@@@@@@#P5YJPJB#@#P&P#&#GG#BG
-@@@@@@@@@@@@@@@@JG5&@@&@@&B##B5#@&&#B####5G#BG@&G5
-@@@@@@@@@@@@@@@@&&&@@@&@@@&GB@@@&###&&BG#PYPGBBBB&
-@@@@@@@@@@@@@@@@@@@@@@@&@@@@@&##BGBPPBBGYJ55Y?YPB#
-@@@@@@@@@@@@@@@@@@&&@&@&&&&###B#BBPPPPP5JY5PPB5YYP
+# netalice #
+net analysis tool project by Niklas Suvitie and Valtteri Äyräs @Turku University of Applied Sciences.
+
+## Features in 1.0.0 ##
+
+*Measure network speed
+*Ping hosts in network
+*Output results in user-friendly formats
+
+
+## Installation ##
+```
+git clone https://github.com/walterairs/netalice.git
+cd netalice
+make
+```
+
+## Usage ##
+```
+./netalice
+```
+
+## color coding ##
+Color | meaning
+------|--------
+red   | Error
+green | Success/measures
+yellow| Missing input
+
+## License ##
+This project is under MIT Lisence.

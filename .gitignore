@@ -1,0 +1,3 @@
+#Ignoring build files and vscode files
+/build
+/.vscode

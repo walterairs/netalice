@@ -1,0 +1,2 @@
+11-03-2023: Created the project with CMake. Inspecting how the header files are included in the project and building. Debug solution still missing.
+            Re-defined the README.md file. and created a filestructure for the project. Workinghours: 3h

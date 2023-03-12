@@ -1,2 +1,5 @@
 11-03-2023: Created the project with CMake. Inspecting how the header files are included in the project and building. Debug solution still missing.
             Re-defined the README.md file. and created a filestructure for the project. Workinghours: 3h
+
+12-03-2023: Installed ncurse library and started to implement the ncurses library in the project. Remaining work: Implementing file I/O to the project.
+            User should be promted with a menu to choose to run speedtest or to read test logs from a file. Workinghours: 2h

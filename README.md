@@ -7,6 +7,10 @@ net analysis tool project by Niklas Suvitie and Valtteri Äyräs @Turku Universi
 *Ping hosts in network
 *Output results in user-friendly formats
 
+## Requirements: ##
+```
+sudo apt-get install libncurses5-dev libncursesw5-dev
+```
 
 ## Installation ##
 ```

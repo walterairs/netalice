@@ -8,4 +8,9 @@ set(SRC_FILES
     source/tools/speedtest/speedtest.c
 )
 
+find_package(Curses REQUIRED)
+include_directories(${CURSES_INCLUDE_DIR})
+
 add_executable(netalice ${SRC_FILES})
+
+target_link_libraries(netalice ${CURSES_LIBRARIES})

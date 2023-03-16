@@ -1,7 +1,7 @@
 #ifndef SPEEDTEST_H
 #define SPEEDTEST_H
 
+int speedtestmenu();
 void speedtest();
-void speedtest2();
 
 #endif

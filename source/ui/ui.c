@@ -45,10 +45,11 @@ int menu(menuitems items) {
     while(1) {
         c = NULL;
         clear();
-        mvprintw(menu_y - 2, menu_x, "Alice says ");
+        mvprintw(menu_y - 3, menu_x, "Alice says ");
         attron(COLOR_PAIR(1));
         printw("Hi!");
         attroff(COLOR_PAIR(1));
+        mvprintw(menu_y - 2, menu_x - 4, "Use W, S and Space to navigate");
 
         while (c == NULL) {
             switch (choice) {

@@ -9,7 +9,7 @@ typedef struct {
 int main() {
     menuitems items = {
         .options = {
-            "Run speedtest",
+            "Speedtest",
             "Run pingtest",
             "Exit"
         }
@@ -18,7 +18,7 @@ int main() {
     switch (choice) {
         case 0:
             mvprintw(0, 0, "Running speedtest...");
-            speedtest();
+            speedtestmenu();
             break;
         case 1:
             break;

@@ -43,6 +43,14 @@ int speedtestmenu()
 
 void speedtest()
 {
+    //check network connection
+    system("ping -c 1 google.com | grep -E '? received' | cut -d, -f2 >> testi.txt");
+
+    //TODO chek if testi.txt has 0 or 1 using fscanf
+    //0 received if no web
+    //1 received if web
+
+
     time_t mytime;
     char *t = NULL;
 

@@ -1,8 +1,8 @@
 /* File: ui.c
 *  Author(s): 1) Valtteri Äyräs 2) Niklas Suvitie
-*  Description: This file generates the TUI for the program.
-*  Created: 11-03-2023
-*  Lisence: MIT
+*  Description: This file contains the TUI functions which generate the menus.
+*  Lisence: MITription: This file generates the TUI for the program.
+*  Created: 11-03-2
 */
 
 #include <ncurses.h>
@@ -37,7 +37,6 @@ int menu(menuitems items) {
 
     int choice = 0;
     char c;
-    char *holdertext = "placeholder";
 
     start_color();
     init_pair(1, COLOR_GREEN, COLOR_BLACK);

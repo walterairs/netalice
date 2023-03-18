@@ -3,3 +3,6 @@
 
 12-03-2023: Installed ncurse library and started to implement the ncurses library in the project. Remaining work: Implementing file I/O to the project.
             User should be promted with a menu to choose to run speedtest or to read test logs from a file. Workinghours: 2h
+
+18-03-2023: Created functionality to measure download speed as user. TODO: implement file i/o to the feature, create comparing algorithm to
+            compare the download speed to the speed of the file. Workinghours: 2h

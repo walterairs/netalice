@@ -1,2 +1,4 @@
 16-03-2023: Added info text to menus. Made submenu for speedtest. Made file logging. TODO: Speedtest(now just ping) and file I/O more user friendly. 
 Do the network check. Workinghours: 3h
+
+21-03-2023: Did the network check for pingtest. Found issues on color coding and some prints. I did not fix them yet. Workinghours: 1h

@@ -64,6 +64,26 @@ int downloadtestmenu()
  * @return null
  */
 void downloadtest() {
+    //check connection
+    system("ping -c 1 google.com | grep -E '? received' | cut -d, -f2 > connection_test.txt");
+    FILE* conTest = fopen("connection_test.txt", "r");
+    if (conTest == NULL) {
+        printf("no such file.");
+    }
+ 
+    char buf[100];
+    int flag = 0;
+    fscanf(conTest, "%s ", buf);
+    if (strcmp(buf, "1") == 0){
+        //there is connection
+        flag = 1;
+    }
+
+    if (flag == 1){
     system("wget -O /dev/null http://speedtest.tele2.net/1GB.zip | grep -E '? received' | cut -d, -f2 >> downloaftest.log");
-    printf("Downloadtest complete. Check downloadtest.log for results.");
+    printf("Downloadtest complete. Check downloadtest.log for results.\n");
+    }
+    else{
+        printf("You have no network connection\n");
+    }
 }

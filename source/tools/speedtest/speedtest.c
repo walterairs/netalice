@@ -6,6 +6,7 @@
 */
 
 #include <stdio.h>
+#include <string.h>
 #include <time.h>
 #include <stdlib.h>
 #include "speedtest.h"
@@ -64,21 +65,39 @@ int speedtestmenu()
  */
 void speedtest()
 {
-    system("ping -c 1 google.com | grep -E '? received' | cut -d, -f2 >> testi.txt");
+    //check connection
+    system("ping -c 1 google.com | grep -E '? received' | cut -d, -f2 > connection_test.txt");
+    FILE* conTest = fopen("connection_test.txt", "r");
+    if (conTest == NULL) {
+        printf("no such file.");
+    }
+ 
+    char buf[100];
+    int flag = 0;
+    fscanf(conTest, "%s ", buf);
+    if (strcmp(buf, "1") == 0){
+        //there is connection
+        flag = 1;
+    }
 
-    time_t mytime;
-    char *t = NULL;
+    if (flag == 1){
+        time_t mytime;
+        char *t = NULL;
 
-    mytime = time(NULL);
-    t = ctime(&mytime);
+        mytime = time(NULL);
+        t = ctime(&mytime);
 
-    FILE *logfile;
-    logfile=fopen("speedtest.log", "a+");
-    fprintf(logfile,"Speed test done! at %s \n",t);
-    fclose(logfile);
-    printf("Ping in milliseconds!\n");
-    system("ping -c 1 google.com | grep rtt | cut -d/ -f6");
+        FILE *logfile;
+        logfile=fopen("speedtest.log", "a+");
+        fprintf(logfile,"Speed test done! at %s \n",t);
+        fclose(logfile);
+        printf("Ping in milliseconds!\n");
+        system("ping -c 1 google.com | grep rtt | cut -d/ -f6");
 
-    printf("\033[0;31mSpeedtest done!\033[0m\n");
+        printf("\033[0;31mSpeedtest done!\033[0m\n");
+        }
+        else{
+            printf("You have no network connection\n");
+        }
     
 }

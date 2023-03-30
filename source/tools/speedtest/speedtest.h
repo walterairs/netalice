@@ -10,5 +10,6 @@
 
 int speedtestmenu();
 void speedtest();
+void showTestAmount();
 
 #endif

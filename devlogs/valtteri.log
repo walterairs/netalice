@@ -6,3 +6,8 @@
 
 18-03-2023: Created functionality to measure download speed as user. TODO: implement file i/o to the feature, create comparing algorithm to
             compare the download speed to the speed of the file. Workinghours: 2h
+
+01-04-2023: made it so that the user don't need to re-start the program after doing the download speed test. Workinghours: 1h
+            TODO: implement file reading for the logs properly. Workinghours: 2h
+
+02-04-2023: Implemented file reading for the logs. Also Implemented TUI for viewing them. Workinghours: 4h

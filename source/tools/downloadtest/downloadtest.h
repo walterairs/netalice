@@ -10,5 +10,6 @@
 
 int downloadtestmenu();
 void downloadtest();
+int downloadLog();
 
 #endif

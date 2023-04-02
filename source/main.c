@@ -31,10 +31,12 @@ int main() {
     switch (choice) {
         case 0:
             mvprintw(0, 0, "Running speedtest...");
+            endwin();
             speedtestmenu();
             break;
         case 1:
             mvprintw(0, 0, "Running downloadtest...");
+            endwin();
             downloadtestmenu();
             break;
         case 2:

@@ -70,7 +70,6 @@ int speedtestmenu()
  */
 void speedtest()
 {
-    //check connection
     system("ping -c 1 google.com | grep -E '? received' | cut -d, -f2 > connection_test.txt");
     FILE* conTest = fopen("connection_test.txt", "r");
     if (conTest == NULL) {
@@ -81,7 +80,6 @@ void speedtest()
     int flag = 0;
     fscanf(conTest, "%s ", buf);
     if (strcmp(buf, "1") == 0){
-        //there is connection
         flag = 1;
     }
 
@@ -119,13 +117,8 @@ void showTestAmount(){
     while ((fgets(str, 10000, logfile)) != NULL)
     {
         index = 0;
-
-        // Find next occurrence of word in str
         while ((pos = strstr(str + index, word)) != NULL)
         {
-            // Index of word in str is
-            // Memory address of pos - memory
-            // address of str.
             index = (pos - str) + 1;
 
             testAmount++;
@@ -144,7 +137,7 @@ void showTestAmount(){
 			*(testAmountArray + index) = 0;
 		}
     }
-    printf("Here is placeholder array\n"); //this array will have 1 if ping over 25ms or 0 if ping under 25ms
+    printf("Here is placeholder array\n");
 	int loop = 0;
 	for(loop = 0; loop < testAmount; loop++)
     	printf("%d ", *(testAmountArray + loop));

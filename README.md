@@ -11,6 +11,7 @@ net analysis tool project by Niklas Suvitie and Valtteri Äyräs @Turku Universi
 ```
 sudo apt-get install libncurses5-dev libncursesw5-dev
 sudo apt-get install libcurl4-openssl-dev
+sudo apt install gcc-9
 ```
 
 ## Installation ##

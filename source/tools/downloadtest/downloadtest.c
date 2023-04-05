@@ -28,6 +28,7 @@ typedef struct {
  */
 int downloadtestmenu()
 {
+    int returnValue = 0;
     menuitems items = {
         .options = {
             "Run downloadtest",
@@ -39,10 +40,15 @@ int downloadtestmenu()
     switch (choice) {
     case 0:
         mvprintw(0, 0, "Running downloadtest...");
-        downloadtest();
-        mvprintw(0, 0, "Downloadtest complete. Check downloaftest.log for results.");
-        downloadtestmenu();
-        break;
+        returnValue = downloadtest();
+        if(returnValue == 0){
+            mvprintw(0, 0, "Downloadtest complete. Check downloaftest.log for results.");
+            downloadtestmenu();
+            break;
+        }else{
+            break;
+        }
+        
     case 1: {
         downloadLog();
         main();
@@ -61,7 +67,7 @@ int downloadtestmenu()
  * 
  * @return null
  */
-void downloadtest() {
+int downloadtest() {
 
     system("ping -c 1 google.com | grep -E '? received' | cut -d, -f2 > connection_test.txt");
     FILE* conTest = fopen("connection_test.txt", "r");
@@ -80,9 +86,11 @@ void downloadtest() {
         system("wget -O /dev/null http://speedtest.tele2.net/10MB.zip > downloadtest.txt 2>&1");
         system("tail -n 2 downloadtest.txt | head -n 1 | awk '{print $0\"\\n\"}' >> downloadtest.log");
         system("rm downloadtest.txt");
+        return 0;
     }
     else{
         printf("You have no network connection\n");
+        return 1;
     }
     
 }

@@ -11,3 +11,6 @@ not have header file. Workinghours: 1h
 
 30-03-2023: Fixed colorcoding on outputprints to match readme. Added color coding macros to speedtest.c file. Implemented Dynamic memory allocation.
 TODO: Implement Dynamic array over/under 25ms functionality. Workinghours: 2h
+
+05-04-2023: Made the code cleaner. Made the program to exit if there is no connection. Made speedtest logs better looking. 
+Prepared the presentation. Tested the program extensively. Workinghours: 6h

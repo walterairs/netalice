@@ -9,7 +9,7 @@
 #define SPEEDTEST_H
 
 int speedtestmenu();
-void speedtest();
+int speedtest();
 void showTestAmount();
 
 #endif

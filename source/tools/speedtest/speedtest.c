@@ -30,6 +30,7 @@ typedef struct {
  */
 int speedtestmenu()
 {
+    int returnValue = 0;
     menuitems items = {
         .options = {
             "Run speedtest",
@@ -41,19 +42,16 @@ int speedtestmenu()
     switch (choice) {
     case 0:
         mvprintw(0, 0, "Running speedtest...");
-        speedtest();
+        returnValue = speedtest();
+        if(returnValue == 1){
+            break;
+        }else{
+            speedtestmenu();
+        }
         break;
     case 1: {
-        char buff[255];
-        FILE *logfile;
-        logfile=fopen("speedtest.log", "r");
-        if (logfile != NULL) {
-            fgets(buff, 255, logfile);
-            printf("\n%s\n",buff);
-            fclose(logfile);
-        } else {
-            printf("Error opening file.\n");
-        }
+        showTestAmount();
+        main();
         break;
     }
     case 2:
@@ -68,7 +66,7 @@ int speedtestmenu()
  * @brief Speedtest function, runs speedtest and logs it
  * 
  */
-void speedtest()
+int speedtest()
 {
     system("ping -c 1 google.com | grep -E '? received' | cut -d, -f2 > connection_test.txt");
     FILE* conTest = fopen("connection_test.txt", "r");
@@ -94,19 +92,30 @@ void speedtest()
         logfile=fopen("speedtest.log", "a+");
         fprintf(logfile,"Speed test done at %sresult below in milliseconds:\n",t);
         fclose(logfile);
-        printf("Ping in milliseconds!\n");
-        system("ping -c 1 google.com | grep rtt | cut -d/ -f6 | tee -a speedtest.log");
+        system("ping -c 1 google.com | grep rtt | cut -d/ -f6 >> speedtest.log");
 
-        printf( GREEN "Speedtest done!\n" RESET);
+        return 0;
         }
         else{
             printf("You have no network connection\n");
+            return 1;
         }
-        showTestAmount();
 }
 
 void showTestAmount(){
-    int *testAmountArray = NULL;
+    int count = 0;
+    // Initialize curses
+    initscr();
+    cbreak();
+    noecho();
+    keypad(stdscr, TRUE);
+
+    int rows, cols;
+    getmaxyx(stdscr, rows, cols);
+
+    resize_term(rows, cols);
+    clear();
+
     FILE *logfile;
     logfile=fopen("speedtest.log", "r");
     char str[10000];
@@ -126,24 +135,21 @@ void showTestAmount(){
     }
 
     fclose(logfile);
-    printf("Speedtest have been done %d times.\n",testAmount);
-
-    testAmountArray = (int*) malloc(testAmount * sizeof(int));
-
-    if(testAmountArray == NULL){
-        printf("Dynamic memory allocation failed\n");
-    }else{
-        for(index = 0; index < testAmount; index++){
-			*(testAmountArray + index) = 0;
-		}
-    }
-    printf("Here is placeholder array\n");
-	int loop = 0;
-	for(loop = 0; loop < testAmount; loop++)
-    	printf("%d ", *(testAmountArray + loop));
-	
-    printf("\n");
-
-    free(testAmountArray);
+    mvprintw(count+1, 20, "Speedtest have been done %d times.\n",testAmount);
+    system("awk '!/Speed/ && !/result/ {print}' speedtest.log | tail -n 1 > speedstemp.log");
+    FILE *tempSpeed;
+    tempSpeed=fopen("speedstemp.log","r");
+    char tempvalue[10];
+    fscanf(tempSpeed, "%s", tempvalue);
     
+    mvprintw(count+2, 20, "Most reacent result:");
+    mvprintw(count+3, 20, "%s",tempvalue);
+    mvprintw(count+6, 20, "press any key to continue...");
+
+    fclose(tempSpeed);
+    
+    // End curses
+    refresh();
+    getch();
+    endwin();
 }

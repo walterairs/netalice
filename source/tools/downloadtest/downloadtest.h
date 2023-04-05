@@ -9,7 +9,7 @@
 #define DOWNLOADTEST_H
 
 int downloadtestmenu();
-void downloadtest();
+int downloadtest();
 int downloadLog();
 
 #endif

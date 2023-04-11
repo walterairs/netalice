@@ -142,8 +142,10 @@ void showTestAmount(){
     char tempvalue[10];
     fscanf(tempSpeed, "%s", tempvalue);
     
-    mvprintw(count+2, 20, "Most reacent result:");
+    mvprintw(count+2, 20, "Most recent result:");
+    attron(COLOR_PAIR(1));
     mvprintw(count+3, 20, "%s",tempvalue);
+    attroff(COLOR_PAIR(1));
     mvprintw(count+6, 20, "press any key to continue...");
 
     fclose(tempSpeed);
